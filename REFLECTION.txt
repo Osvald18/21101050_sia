@@ -1,0 +1,9 @@
+REFLECTION
+
+What do database migrations do and why are they useful?
+
+	- Database migrations is the process of moving the database from another target Database. They are useful because it allows businesses to transition their database whether it would be to upgrade, backup, or transfer to a newer system. It allows businesses to adapt to changing needs and leverage new technologies.
+
+How does GraphQL differ from REST for CRUD operations?
+
+	- GraphQL is a data query language for API that fetches the data the client needs without any over-fetching and under-fetching. REST relies on multiple endpoints and use the standard HTTP methods which is more traditional and easier to work than GraphQL. Overall for CRUD operations, REST uses HTTP methods which could lead to over-fetching and under-fetching while GraphQL improves CRUD operations by using queries and mutations that returns the only needed fields.
