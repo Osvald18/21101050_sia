@@ -10,16 +10,16 @@ const { WebSocketServer } = require("ws");
 const { useServer } = require("graphql-ws/lib/use/ws");
 const { PubSub } = require("graphql-subscriptions");
 
-// Initialize Prisma and PubSub
+
 const prisma = new PrismaClient();
 const pubsub = new PubSub();
 
-// Express app setup
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// GraphQL Schema
+
 const typeDefs = `#graphql
   type Post {
     id: ID!
@@ -51,7 +51,7 @@ const resolvers = {
         data: { title, content, authorId },
       });
 
-      // Publish the new post event
+      
       pubsub.publish("POST_ADDED", { postAdded: newPost });
 
       return newPost;
@@ -64,10 +64,10 @@ const resolvers = {
   },
 };
 
-// Create schema
+
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
-// Create WebSocket server for subscriptions
+
 const httpServer = createServer(app);
 const wsServer = new WebSocketServer({
   server: httpServer,
@@ -75,7 +75,7 @@ const wsServer = new WebSocketServer({
 });
 useServer({ schema }, wsServer);
 
-// Create Apollo Server
+
 const server = new ApolloServer({ schema });
 
 async function startServer() {
@@ -84,7 +84,7 @@ async function startServer() {
   app.use("/graphql", expressMiddleware(server));
 
   httpServer.listen(4002, () => {
-    console.log("🚀 GraphQL & WebSocket Server running on http://localhost:4002/graphql");
+    console.log("GraphQL & WebSocket Server running on http://localhost:4002/graphql");
   });
 }
 
