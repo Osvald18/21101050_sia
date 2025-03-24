@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@apollo/client": "^3.13.5",
+    "@apollo/link-ws": "^2.0.0-beta.3",
+    "graphql": "^16.10.0",
+    "subscriptions-transport-ws": "^0.9.19"
+  }
+}
